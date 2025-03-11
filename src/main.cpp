@@ -1,14 +1,16 @@
 #include <Arduino.h>
 
-#define LED 13
+#define NOTE A5
+int note;
 
 void setup() {
-  pinMode(LED,OUTPUT);
+  pinMode(NOTE,INPUT);
   Serial.begin(9600);
-  Serial.println("Hourah");
 }
 
 void loop() {
-  digitalWrite(LED,HIGH);
+  note=analogRead(NOTE);
+  Serial.println(note);
+  delay(500);
 }
 
