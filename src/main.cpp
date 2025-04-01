@@ -2,8 +2,6 @@
 #include <MsTimer2.h>
 #define IN 5
 
-boolean output = HIGH;
-
 unsigned long etatHaut;
 unsigned long etatBas;
 float periode;
@@ -13,7 +11,6 @@ float rapportCyclique;
 int tempo=1200;
 
 void bpm() {
-  digitalWrite(8, output);
   digitalWrite(8, HIGH); 
   delay(10); 
   digitalWrite(8, LOW); 
