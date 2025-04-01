@@ -8,11 +8,11 @@ float periode;
 float frequence;
 float rapportCyclique;
 
-int tempo=1200;
+int tempo=900; // (delay)
 
 void bpm() {
   digitalWrite(8, HIGH); 
-  delay(10); 
+  delay(100); 
   digitalWrite(8, LOW); 
 }
 
