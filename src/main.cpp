@@ -25,7 +25,6 @@ int note();
 void rising();
 void checkFinNote();
 
-
 void setup() {
   Serial.begin(9600);
   //*
@@ -36,7 +35,6 @@ void setup() {
   attachInterrupt(0, rising, RISING);
   delay(600);
 }
-
 
 void loop() {
   checkFinNote();
