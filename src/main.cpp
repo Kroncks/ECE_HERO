@@ -41,7 +41,6 @@ void setup() {
 void loop() {
   checkFinNote();
   if(period!=-1){
-    frequency =  1000000.0 / period;
     Serial.println(note());
   }
 }
@@ -76,7 +75,7 @@ void checkFinNote() {
 }
 
 int note() {
-  if (period == -1) return -1; 
+  frequency =  1000000.0 / period;
   float ecart;
   int num;
   for (int i = 0; i < 8; i++) { 
