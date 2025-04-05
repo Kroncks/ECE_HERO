@@ -10,10 +10,12 @@ volatile int period = -1;
 float frequency = 0;
 const unsigned long TIMEOUT = 100000;
 volatile unsigned long buffer = 0;
+
 unsigned int frequencies[8] = {258, 289, 330, 353, 392, 441, 495, 523};
+
 volatile boolean firstRising = true;
 int tempo=900; // (delay)
-volatile int note;
+
 
 void bpm() {
   digitalWrite(8, HIGH); 
@@ -38,8 +40,10 @@ void setup() {
 
 void loop() {
   checkFinNote();
-  if(period!=-1){
-    Serial.println(note());
+  
+  if(period!=-1 ){ // envoie les données 
+    frequency =  1000000.0 / period;
+    Serial.println(frequency);
   }
 }
 
@@ -66,23 +70,9 @@ void checkFinNote() {
   if (currentTime < lastSignalTime) {
     lastSignalTime = currentTime;
   }
-  if (currentTime - lastSignalTime > TIMEOUT) {
+  if (currentTime - lastSignalTime > TIMEOUT) { // fin de la note
     period = -1;
+    if (!firstRising) Serial.println(-1);
     firstRising = true;
   }
-}
-
-int note() {
-  frequency =  1000000.0 / period;
-  float ecart;
-  int num;
-  for (int i = 0; i < 8; i++) { 
-    if (abs(frequencies[i] - frequency) < ecart) {
-      ecart = abs(frequencies[i] - frequency);
-      num=i;
-    }
-  }
-  if (ecart>30) return -1; 
-
-  return num;
 }
