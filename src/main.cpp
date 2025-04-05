@@ -10,9 +10,6 @@ volatile int period = -1;
 float frequency = 0;
 const unsigned long TIMEOUT = 100000;
 volatile unsigned long buffer = 0;
-
-unsigned int frequencies[8] = {258, 289, 330, 353, 392, 441, 495, 523};
-
 volatile boolean firstRising = true;
 int tempo=900; // (delay)
 
