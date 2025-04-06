@@ -11,7 +11,7 @@ float frequency = 0;
 const unsigned long TIMEOUT = 100000;
 volatile unsigned long buffer = 0;
 volatile boolean firstRising = true;
-int tempo=900; // (delay)
+int tempo=990; // (delay)
 
 
 void bpm() {
